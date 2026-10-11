@@ -1,0 +1,26 @@
+{
+  "cmake.generator": "Ninja",
+  "cmake.buildDirectory": "${workspaceFolder}/Builds",
+  "cmake.configureOnOpen": false,
+  "cmake.exportCompileCommandsFile": true,
+  "cmake.preferredGenerators": ["Ninja"],
+  "files.associations": {
+    "*.h": "cpp"
+  },
+  "editor.formatOnSave": true,
+  "C_Cpp.default.compileCommands": "${workspaceFolder}/Builds/compile_commands.json",
+  "C_Cpp.default.cppStandard": "c++20",
+  "search.exclude": {
+    "**/JUCE": true,
+    "**/Builds": true,
+    "**/cmake": true,
+    "**/modules": true,
+    "**/.cache": true
+  },
+  "files.watcherExclude": {
+    "**/JUCE/**": true,
+    "**/Builds/**": true,
+    "**/cmake/**": true,
+    "**/modules/**": true
+  }
+}

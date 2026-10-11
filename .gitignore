@@ -1,0 +1,47 @@
+CMakeLists.txt.user
+CMakeCache.txt
+CMakeFiles
+CMakeScripts
+Makefile
+cmake_install.cmake
+install_manifest.txt
+compile_commands.json
+CTestTestfile.cmake
+_deps
+**/.DS_Store
+
+# Keep Builds/ as a marker so it's obvious where build outputs land
+Builds/*
+!Builds/.gitkeep
+BuildsRelease/
+Builds-*/
+BuildsRelease-*/
+
+Install/*
+plans/
+
+Testing
+
+.idea
+cmake-build-debug
+cmake-build-release
+cmake-build-relwithdebinfo
+packaging/Output/*
+
+# Per-machine pluginval download (don't commit binaries)
+tools/pluginval.exe
+
+# Per-user Claude Code settings
+.claude/settings.local.json
+
+# Submodules — fetched fresh, never committed as files
+cmake/
+JUCE/
+modules/melatonin_inspector/
+
+
+# Build logs (transcripts from tools/*.ps1)
+logs/*
+!logs/.gitkeep
+docs/manual.pdf
+/Builds

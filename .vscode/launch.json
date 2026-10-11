@@ -1,0 +1,20 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "(Win) Launch Standalone",
+      "type": "cppvsdbg",
+      "request": "launch",
+      "program": "${workspaceFolder}/Builds/MyPlugin_artefacts/Debug/Standalone/MyPlugin.exe",
+      "cwd": "${workspaceFolder}",
+      "console": "internalConsole",
+      "preLaunchTask": "build-debug"
+    },
+    {
+      "name": "(Win) Attach to DAW",
+      "type": "cppvsdbg",
+      "request": "attach",
+      "processId": "${command:pickProcess}"
+    }
+  ]
+}

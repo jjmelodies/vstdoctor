@@ -1,0 +1,51 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "configure-debug",
+      "type": "shell",
+      "options": {
+        "shell": {
+          "executable": "powershell.exe",
+          "args": ["-NoProfile", "-Command"]
+        }
+      },
+      "command": "cmd /c '\"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Auxiliary\\Build\\vcvars64.bat\" >nul && set' | ForEach-Object { if ($_ -match '^([^=]+)=(.*)$') { Set-Item \"env:$($matches[1])\" $matches[2] } }; cmake -B Builds -G Ninja -DCMAKE_BUILD_TYPE=Debug",
+      "group": "build",
+      "problemMatcher": []
+    },
+    {
+      "label": "build-debug",
+      "type": "shell",
+      "options": {
+        "shell": {
+          "executable": "powershell.exe",
+          "args": ["-NoProfile", "-Command"]
+        }
+      },
+      "command": "cmd /c '\"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Auxiliary\\Build\\vcvars64.bat\" >nul && set' | ForEach-Object { if ($_ -match '^([^=]+)=(.*)$') { Set-Item \"env:$($matches[1])\" $matches[2] } }; cmake --build Builds",
+      "group": { "kind": "build", "isDefault": true },
+      "dependsOn": "configure-debug",
+      "problemMatcher": ["$msCompile"]
+    },
+    {
+      "label": "run-tests",
+      "type": "shell",
+      "command": "ctest --test-dir Builds --output-on-failure",
+      "group": "test",
+      "problemMatcher": []
+    },
+    {
+      "label": "pluginval",
+      "type": "shell",
+      "command": "${workspaceFolder}\\tools\\pluginval.exe --strictness-level 10 --skip-gui-tests --validate-in-process \"$env:LOCALAPPDATA\\Programs\\Common\\VST3\\MyPlugin.vst3\"",
+      "problemMatcher": []
+    },
+    {
+      "label": "build+test+pluginval",
+      "dependsOrder": "sequence",
+      "dependsOn": ["build-debug", "run-tests", "pluginval"],
+      "problemMatcher": []
+    }
+  ]
+}

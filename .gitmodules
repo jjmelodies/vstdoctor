@@ -1,0 +1,13 @@
+[submodule "cmake"]
+	path = cmake
+	url = https://github.com/sudara/cmake-includes.git
+[submodule "modules/melatonin_inspector"]
+	path = modules/melatonin_inspector
+	url = https://github.com/sudara/melatonin_inspector.git
+[submodule "JUCE"]
+	path = JUCE
+	url = https://github.com/juce-framework/JUCE.git
+# Uncomment if you enable RTNeural in CMakeLists.txt:
+# [submodule "modules/RTNeural"]
+#     path = modules/RTNeural
+#     url = https://github.com/jatinchowdhury18/RTNeural.git
